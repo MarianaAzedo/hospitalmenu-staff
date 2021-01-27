@@ -37,15 +37,21 @@ const AllTheMenusPage = (props) => {
       {menu
         .filter((m) => m.roomid)
         .map((user) => (
-          <div style={{ border: '1px solid black', marginBottom: '10px' }}>
+          <div class="all--menus">
             {user.roomid}
             {Object.keys(user.menu).map((k) => (
-              <div>
-                <h6>{k}</h6>
-                {Object.values(user.menu[k]).map((item) => (
-                  <span>{item}</span>
-                ))}
-              </div>
+              <React.Fragment>
+                {Object.values(user.menu[k] || []).length > 0 && (
+                  <div>
+                    <h3>{k}</h3>
+                    {Object.values(user.menu[k])
+                      .filter(Boolean)
+                      .map((item) => (
+                        <div class="item">{item}</div>
+                      ))}
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         ))}

@@ -15,8 +15,8 @@ const Header = (props) => {
 
   return (
     <header>
-      <div className="header__text">{username} </div>
-      <div className="header__avatar"> Avatar goes ghere </div>
+      <div className="header__text">Pantry </div>
+      <div className="header__user"> {username} </div>
     </header>
   );
 };
